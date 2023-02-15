@@ -1,4 +1,5 @@
 using ApiParticipantes.Application.DI;
+using ApiParticipantes.WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseCors("CorsPolicy");
 
